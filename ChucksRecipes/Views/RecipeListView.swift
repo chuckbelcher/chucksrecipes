@@ -9,16 +9,22 @@ import SwiftUI
 
 struct RecipeListView: View {
     
-    @ObservedObject var model = RecipeModel()
+    @ObservedObject var recipeModel = RecipeModel()
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+
+            List(recipeModel.recipies) { recipie in
+                HStack (spacing: 20) {
+                    Image(recipie.image)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 50, height: 50)
+                        .clipped()
+                        .cornerRadius(10)
+                    Text(recipie.name)
+                }
+            }
+
     }
 }
 
