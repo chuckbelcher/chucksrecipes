@@ -9,7 +9,7 @@ import Foundation
 
 class DataService {
     
-    func getLocalData() -> [Recipe] {
+    static func getLocalData() -> [Recipe] {
         
         //Parse local JSON file
         let filePath = Bundle.main.path(forResource: "recipes", ofType: "json")
