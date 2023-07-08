@@ -9,6 +9,8 @@ import Foundation
 
 class RecipeModel: ObservableObject {
     
+    @Published var recipies = [Recipe]()
+    
     init() {
         
     }

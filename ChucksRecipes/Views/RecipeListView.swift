@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct RecipeListView: View {
+    
+    @ObservedObject var model = RecipeModel()
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
