@@ -11,7 +11,7 @@ import SwiftUI
 struct ChucksRecipesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RecipeListView()
         }
     }
 }
