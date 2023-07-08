@@ -15,6 +15,7 @@
 		320A51352A58E8D9000D3A04 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320A51342A58E8D9000D3A04 /* Recipe.swift */; };
 		320A51372A58EAB0000D3A04 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320A51362A58EAB0000D3A04 /* RecipeModel.swift */; };
 		320A51392A58ECEC000D3A04 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320A51382A58ECEC000D3A04 /* DataService.swift */; };
+		320A513B2A5A1FFA000D3A04 /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320A513A2A5A1FFA000D3A04 /* RecipeDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		320A51342A58E8D9000D3A04 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		320A51362A58EAB0000D3A04 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		320A51382A58ECEC000D3A04 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		320A513A2A5A1FFA000D3A04 /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				320A50B92A50F4F4000D3A04 /* RecipeListView.swift */,
+				320A513A2A5A1FFA000D3A04 /* RecipeDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				320A51352A58E8D9000D3A04 /* Recipe.swift in Sources */,
+				320A513B2A5A1FFA000D3A04 /* RecipeDetailView.swift in Sources */,
 				320A51372A58EAB0000D3A04 /* RecipeModel.swift in Sources */,
 				320A50BA2A50F4F4000D3A04 /* RecipeListView.swift in Sources */,
 				320A50B82A50F4F4000D3A04 /* ChucksRecipesApp.swift in Sources */,
