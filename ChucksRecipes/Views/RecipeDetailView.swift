@@ -14,8 +14,6 @@ struct RecipeDetailView: View {
     var body: some View {
         ScrollView {
             
-            //TODO: Add Recipe Title 1743
-            
             VStack (alignment: .leading){
                 //MARK: Recipe Image
                 Image(recipe.image)
@@ -51,6 +49,8 @@ struct RecipeDetailView: View {
                 .padding(.horizontal, 10)
             }
         }
+        .navigationBarTitle(recipe.name)
+
     }
 }
 

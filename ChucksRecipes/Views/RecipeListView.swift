@@ -13,17 +13,27 @@ struct RecipeListView: View {
     
     var body: some View {
 
-            List(recipeModel.recipies) { recipie in
-                HStack (spacing: 20) {
-                    Image(recipie.image)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 50, height: 50)
-                        .clipped()
-                        .cornerRadius(10)
-                    Text(recipie.name)
+        NavigationView {
+            List(recipeModel.recipies) { recipe in
+                
+                NavigationLink {
+                    RecipeDetailView(recipe: recipe)
+                } label: {
+                    HStack (spacing: 20) {
+                        Image(recipe.image)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 50, height: 50)
+                            .clipped()
+                            .cornerRadius(10)
+                        Text(recipe.name)
+                    }
                 }
+
+                    
             }
+            .navigationBarTitle("All Recipes")
+        }
 
     }
 }
