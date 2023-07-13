@@ -12,6 +12,7 @@ struct ChucksRecipesApp: App {
     var body: some Scene {
         WindowGroup {
             RecipeTabView()
+                
         }
     }
 }
