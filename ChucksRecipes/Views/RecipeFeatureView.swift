@@ -21,7 +21,7 @@ struct RecipeFeatureView: View {
             
             GeometryReader { geo in
                 TabView {
-                    ForEach (0..<recipeModel.recipies.count) { index in
+                    ForEach (0..<recipeModel.recipies.count, id:\.self) { index in
                         
                         if recipeModel.recipies[index].featured {
                             ZStack {
