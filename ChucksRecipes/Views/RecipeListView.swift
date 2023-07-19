@@ -33,6 +33,7 @@ struct RecipeListView: View {
                                         .clipped()
                                         .cornerRadius(10)
                                     Text(recipe.name)
+                                        .foregroundColor(.black)
                                 }
                             }
                         }
