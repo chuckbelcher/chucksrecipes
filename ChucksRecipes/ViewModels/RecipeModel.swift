@@ -63,11 +63,9 @@ class RecipeModel: ObservableObject {
                 
             }
             
-            
         }
         
         if var unit = ingredient.unit {
-            
             
             if wholeNumber > 1 {
                 
@@ -82,10 +80,7 @@ class RecipeModel: ObservableObject {
                 
             }
             
-            
-            
             portion += ingredient.num == nil && ingredient.denom == nil ? "" : " "
-            
             return portion + unit
             
         }
