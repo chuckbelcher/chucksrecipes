@@ -45,7 +45,7 @@ struct RecipeDetailView: View {
                         .padding(.vertical, 5)
                     
                     ForEach (recipe.ingredients) {ingredient in
-                        Text("• " + RecipeModel.getPortion(ingredient: ingredient , recipeServings: recipe.servings, targetServings: servingSize) + " " + ingredient.name)
+                        Text("• " + RecipeModel.getPortion(ingredient: ingredient , recipeServings: recipe.servings, targetServings: servingSize) + " " + ingredient.name.lowercased())
                     }
                 }
                 .padding(.horizontal, 10)
@@ -75,6 +75,6 @@ struct RecipeDetailView: View {
 struct RecipeDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let recipeModel = RecipeModel()
-        RecipeDetailView(recipe: recipeModel.recipies[0])
+        RecipeDetailView(recipe: recipeModel.recipies[1])
     }
 }
