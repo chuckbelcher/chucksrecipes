@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecipeFeatureView: View {
     @EnvironmentObject var recipeModel: RecipeModel
-    
+    @State var tabSelectionIndex = 0
     @State var isDetailViewShowing = false
     
     var body: some View {
@@ -22,7 +22,7 @@ struct RecipeFeatureView: View {
                 .bold()
             
             GeometryReader { geo in
-                TabView {
+                TabView (selection: $tabSelectionIndex) {
                     ForEach (0..<recipeModel.recipies.count, id:\.self) { index in
                         
                         if recipeModel.recipies[index].featured {
@@ -44,6 +44,7 @@ struct RecipeFeatureView: View {
                                     }
                                 }
                             }
+                            .tag(index)
                             .sheet(isPresented: $isDetailViewShowing) {
                                 RecipeDetailView(recipe: recipeModel.recipies[index])
                             }
@@ -61,13 +62,21 @@ struct RecipeFeatureView: View {
             VStack (alignment: .leading, spacing: 10) {
                 Text("Preperation Time")
                     .font(.headline)
-                Text("1 hour")
+                Text(recipeModel.recipies[tabSelectionIndex].prepTime)
                 Text("Highlights")
                     .font(.headline)
-                Text("Healthy, Hearty")
+                RecipeHighlightsView(highlights: recipeModel.recipies[tabSelectionIndex].highlights)
             }
             .padding([.leading, .bottom])
+        }.onAppear(perform: { setFeaturedIndex() })
+    }
+    
+    func setFeaturedIndex() {
+        
+        let featureIndex = recipeModel.recipies.firstIndex { (recipe) -> Bool in
+            return recipe.featured
         }
+        tabSelectionIndex = featureIndex ?? 0
     }
 }
 
