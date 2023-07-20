@@ -13,6 +13,9 @@ struct RecipeFeatureView: View {
     @State var isDetailViewShowing = false
     
     var body: some View {
+        
+        let featuredRecipes = recipeModel.recipies.filter({ $0.featured })
+        
         VStack (alignment: .leading, spacing: 0) {
             
             Text("Featured Recipies")
@@ -23,10 +26,7 @@ struct RecipeFeatureView: View {
             
             GeometryReader { geo in
                 TabView (selection: $tabSelectionIndex) {
-                    ForEach (0..<recipeModel.recipies.count, id:\.self) { index in
-                        
-                        if recipeModel.recipies[index].featured {
-                            
+                    ForEach (0..<featuredRecipes.count, id:\.self) { index in
                             Button {
                                 self.isDetailViewShowing = true
                             } label: {
@@ -34,25 +34,21 @@ struct RecipeFeatureView: View {
                                     Rectangle()
                                         .foregroundColor(.white)
                                     VStack (spacing: 0) {
-                                        Image(recipeModel.recipies[index].image)
+                                        Image(featuredRecipes[index].image)
                                             .resizable()
                                             .aspectRatio(contentMode: .fill)
                                             .clipped()
-                                        Text(recipeModel.recipies[index].name)
+                                        Text(featuredRecipes[index].name)
                                             .font(.title)
-                                            .padding(5)
+                                            .padding()
                                     }
                                 }
                             }
                             .tag(index)
-                            .sheet(isPresented: $isDetailViewShowing) {
-                                RecipeDetailView(recipe: recipeModel.recipies[index])
-                            }
                             .buttonStyle(PlainButtonStyle())
                             .frame(width: geo.size.width - 40, height: geo.size.height - 100, alignment: .center)
                             .cornerRadius(25)
                             .shadow(color: Color(.init(srgbRed: 0, green: 0, blue: 0, alpha: 0.5)), radius: 10, x: -5, y: 5)
-                        }
                     }
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
@@ -68,15 +64,11 @@ struct RecipeFeatureView: View {
                 RecipeHighlightsView(highlights: recipeModel.recipies[tabSelectionIndex].highlights)
             }
             .padding([.leading, .bottom])
-        }.onAppear(perform: { setFeaturedIndex() })
-    }
-    
-    func setFeaturedIndex() {
-        
-        let featureIndex = recipeModel.recipies.firstIndex { (recipe) -> Bool in
-            return recipe.featured
         }
-        tabSelectionIndex = featureIndex ?? 0
+        .sheet(isPresented: $isDetailViewShowing) {
+            RecipeDetailView(recipe: featuredRecipes[tabSelectionIndex])
+        }
+        
     }
 }
 
